@@ -1,0 +1,17 @@
+{
+  "name": "learning-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Tyrese-Mv/learning-typescript.git",
+  "author": "Tyrese-Mv <musawenkosi106@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "uuid": "^11.1.0",
+    "uuid-v4": "^0.1.0"
+  }
+}
