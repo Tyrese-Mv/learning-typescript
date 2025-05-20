@@ -28,4 +28,10 @@ export class Task{
     public GetDateAsKey(): string{
         return this.taskCreatedTime.split(" - ")[0];
     }
+
+    public GetTaskDescription(): string{
+        return this.taskDescription;
+    }
+
+    
 }
