@@ -26,6 +26,18 @@ export class LocalDB{
         this.database[taskKey].push(userTask);
     }
 
+    public GetDBKeys(): string[]{
+        return Object.keys(this.database)
+    }
+
+    public GetTasks(date: string): Task[]{
+        return this.database[date];
+    }
+
+    public RemoveTaskById(date: string, id: string): void{
+        
+    }
+
     public toString(): string {
         return JSON.stringify(this.database, null, 2);
       }
