@@ -15,14 +15,27 @@ export async function addTask(Ask: (q: string) => Promise<string>): Promise<void
 
 }
 
+export async function markDone(Ask: (q: string) => Promise<string>): Promise<void>{
+    console.log(`These are the tasks: \n${LocalDB.instance.toString()}`)
+
+    const date = await Ask("Type in the date of the task without the time (e.g 21/05/2025): ");
+    const id = await Ask("Type in the ID of the task: ")
+
+    try{
+        LocalDB.instance.CompleteTask(date, id);
+    }
+    
+}
+
 export async function viewTasks(): Promise<void>{
     console.log(LocalDB.instance.toString());
 }
 
 
 export async function deleteTasks(Ask: (q: string) => Promise<string>): Promise<void>{
-    let count = 0;
+    let count = 1;
     const keys = LocalDB.instance.GetDBKeys();
+    console.log(`Keys: ${keys}`);
     for (const key in keys) {
         console.log(`${count}: ${key}`);
         count++;
@@ -33,11 +46,17 @@ export async function deleteTasks(Ask: (q: string) => Promise<string>): Promise<
         const listOfTasks = LocalDB.instance.GetTasks(taskDate);
         console.log(`These are the list of tasks on ${taskDate}\n"Select the ID of the task you want to delete`)
         for(let i = 0; i < listOfTasks.length; i++){
-            console.log(`${i+1}: ${listOfTasks[i]}`)
-        }        
+            console.log(`${i+1}: ${listOfTasks[i].ToString()}`)
+        }
         
         const taskId = await Ask("Enter The selected ID: ")
 
+        try{
+            LocalDB.instance.RemoveTaskById(taskDate, taskId)
+            console.log("Task Removed Successfully")
+        } catch {
+            console.log("The task id doesn't exist")
+        }
 
     }
     catch {
