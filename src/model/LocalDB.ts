@@ -35,10 +35,20 @@ export class LocalDB{
     }
 
     public RemoveTaskById(date: string, id: string): void{
-        
+        this.database[date] = this.database[date].filter((element) => element.GetTaskID() !== id);
+    }
+
+    public CompleteTask(date: string, id: string): void{
+        const taskList = this.database[date];
+        for (let task of taskList) {
+            if (id === task.GetTaskID()) {
+                task.SetCompletion(true);
+                break;
+            }
+        }
     }
 
     public toString(): string {
         return JSON.stringify(this.database, null, 2);
-      }
+    }
 }
