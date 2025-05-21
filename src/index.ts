@@ -1,5 +1,5 @@
 import readline from 'readline';
-import { addTask, viewTasks, saveToJson, deleteTasks } from './model/Operations';
+import { addTask, viewTasks, saveToJson, deleteTasks, markDone } from './model/Operations';
 
 
 const rl = readline.createInterface({
@@ -23,7 +23,7 @@ async function mainLoop() {
       case "add task":
         await addTask(ask);
         break;
-      case "view":
+      case "complete task":
         await markDone(ask);
         break;
       case "view":
