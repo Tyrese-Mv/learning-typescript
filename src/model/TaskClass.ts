@@ -33,5 +33,19 @@ export class Task{
         return this.taskDescription;
     }
 
-    
+    public GetTaskID(): string{
+        return this.id;
+    }
+
+    public ToString(): string{
+        return `Task ID: ${this.id}
+        Task Description: ${this.taskDescription}
+        Task Date: ${this.taskCreatedTime}
+        Task Completion: ${(this.taskCompletion)? "Done": "Incomplete"}
+        `
+    }
+
+    public SetCompletion(completed: boolean): void{
+        this.taskCompletion = completed;
+    }
 }
