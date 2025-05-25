@@ -24,6 +24,9 @@ export async function markDone(Ask: (q: string) => Promise<string>): Promise<voi
     try{
         LocalDB.instance.CompleteTask(date, id);
     }
+    catch{
+        console.log(`You've entered the wrong ID (${id} or the wrong date(${date}))`)
+    }
     
 }
 
