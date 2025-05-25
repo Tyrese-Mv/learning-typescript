@@ -37,6 +37,10 @@ export class Task{
         return this.id;
     }
 
+    public GetTaskCompletion(): boolean{
+        return this.taskCompletion;
+    }
+
     public ToString(): string{
         return `Task ID: ${this.id}
         Task Description: ${this.taskDescription}
