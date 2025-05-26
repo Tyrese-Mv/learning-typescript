@@ -11,35 +11,35 @@ describe('Task', () => {
         task = new Task('coding');
     })
 
-  it('should create a task with correct description', () => {
-    expect(task.GetTaskDescription()).toBe('coding');
-  });
+    test('should create a task with correct description', () => {
+        expect(task.GetTaskDescription()).toBe('coding');
+    });
 
-  it('created task with a different description',() =>{
-    
-    expect(task.GetTaskDescription()).not.toBe('making food');
-  })
+    test('created task with a different description',() =>{
+        
+        expect(task.GetTaskDescription()).not.toBe('making food');
+    })
 
-  it('created task must not be done at the beginning', () => {
-    
-    expect(task.GetTaskCompletion()).toBeFalsy()
-  })
+    test('created task must not be done at the beginning', () => {
+        
+        expect(task.GetTaskCompletion()).toBeFalsy()
+    })
 
-  it('created task must be marked done when completed', () => {
-    
-    task.SetCompletion(true);
-    expect(task.GetTaskCompletion()).toBeTruthy()
-    task.SetCompletion(false);
-  })
+    test('created task must be marked done when completed', () => {
+        
+        task.SetCompletion(true);
+        expect(task.GetTaskCompletion()).toBeTruthy()
+        task.SetCompletion(false);
+    })
 
-  it('created task must not be done at the beginning', () => {
-    
-    expect(task.GetTaskCompletion()).toBeFalsy()
-  })
+    test('created task must not be done at the beginning', () => {
+        
+        expect(task.GetTaskCompletion()).toBeFalsy()
+    })
 
-  it('Task must be created in the same day', () => {
-    expect(task.GetDateAsKey()).toContain(`${mockDate.getDay()}`)
-    expect(task.GetDateAsKey()).toContain(`${mockDate.getMonth()}`)
-    expect(task.GetDateAsKey()).toContain(`${mockDate.getFullYear()}`)
-  })
+    test('Task must be created in the same day', () => {
+        expect(task.GetDateAsKey()).toContain(`${mockDate.getDate()}`)
+        expect(task.GetDateAsKey()).toContain(`${mockDate.getMonth()}`)
+        expect(task.GetDateAsKey()).toContain(`${mockDate.getFullYear()}`)
+    })
 });
